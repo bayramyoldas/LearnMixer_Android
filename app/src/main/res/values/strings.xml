@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">LearnMixer_Android</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="welcome">Welcome to LearnMix</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_course_content">CourseContentActivity</string>
+    <string name="welcome_desc">Please Select a Course to View It\'s Content</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="art">Art</string>
+    <string name="english">English</string>
+    <string name="math">Mathematics</string>
+    <string name="course_name">Course Name</string>
 </resources>
