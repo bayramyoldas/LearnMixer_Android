@@ -1,18 +1,28 @@
 package com.bayram.yoldas.learnmixer_android;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+import java.util.Random;
 
 
 public class CourseContentActivity extends ActionBarActivity {
-
+    private Drawable[] drawables = null; // create a Drawables array that stores location of different images
+    private ImageView appImageView;
+    private Drawable drawable;
+    private Random random;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_content);
 
+        appImageView = (ImageView) findViewById(R.id.imageView);
+        drawable =  getResources().getDrawable(R.drawable.math);
+        appImageView.setImageDrawable(drawable);
     }
 
 
@@ -20,6 +30,10 @@ public class CourseContentActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_course_content, menu);
+
+        ImageView appImageView = (ImageView) findViewById(R.id.imageView);
+
+
         return true;
     }
 
