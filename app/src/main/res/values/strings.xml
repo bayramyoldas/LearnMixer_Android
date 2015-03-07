@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LearnMixer_Android</string>
+    <string name="app_name">LearnMixer for Android</string>
 
     <string name="welcome">Welcome to LearnMix</string>
     <string name="action_settings">Settings</string>

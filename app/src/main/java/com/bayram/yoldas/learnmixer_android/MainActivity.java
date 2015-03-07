@@ -1,20 +1,31 @@
 package com.bayram.yoldas.learnmixer_android;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
+    public static String art_id;
+    public static String eng_id;
+    public static String math_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btn_art = (Button) findViewById(R.id.btn_art);
+        Button btn_eng = (Button) findViewById(R.id.btn_eng);
+        Button btn_math = (Button) findViewById(R.id.btn_math);
+        btn_art.setOnClickListener(this);
+        btn_eng.setOnClickListener(this);
+        btn_math.setOnClickListener(this);
     }
 
 
@@ -40,10 +51,32 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void onClick(View v){
+
+        Intent i= new Intent(this,CourseContentActivity.class);
+        switch(v.getId()) //get the id which is an int
+        {
+            case R.id.btn_art : //if its button1 that is clicked
+                i.putExtra("button_id", R.id.btn_art);
+                break;
+            case R.id.btn_eng :
+                i.putExtra("button_id", R.id.btn_art);
+                break;
+            case R.id.btn_math :
+                i.putExtra("button_id", R.id.btn_art);
+                break;
+        }
+        startActivity(i);
+    }
+
     public void courseContent(View view)
     {
+        String math = "This\nis\nMath!";
         Intent intent = new Intent(this,CourseContentActivity.class);
         startActivity(intent);
+
     }
 }
 
