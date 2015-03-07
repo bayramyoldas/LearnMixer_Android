@@ -47,7 +47,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -59,13 +58,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         switch(v.getId()) //get the id which is an int
         {
             case R.id.btn_art : //if its button1 that is clicked
-                i.putExtra("button_id", R.id.btn_art);
+                i.putExtra("course_content", "Welcome to Art course, my dear students. Please look at the content below. You will find a good image about historical Egypt hieroglyp");
                 break;
             case R.id.btn_eng :
-                i.putExtra("button_id", R.id.btn_art);
+                i.putExtra("course_content", "Welcome to English course, my dear students. Today, we will learn few new words");
                 break;
             case R.id.btn_math :
-                i.putExtra("button_id", R.id.btn_art);
+                i.putExtra("course_content", "Welcome to Mathematics course, students. 2 + 2 = 4, memorize this.");
                 break;
         }
         startActivity(i);
@@ -73,7 +72,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     public void courseContent(View view)
     {
-        String math = "This\nis\nMath!";
         Intent intent = new Intent(this,CourseContentActivity.class);
         startActivity(intent);
 

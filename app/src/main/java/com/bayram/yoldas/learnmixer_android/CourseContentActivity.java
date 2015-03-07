@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -31,41 +32,41 @@ public class CourseContentActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_content);
+        RelativeLayout relativeLayout = new RelativeLayout(this);
+
+        RelativeLayout.LayoutParams lParams = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.FILL_PARENT,
+                RelativeLayout.LayoutParams.FILL_PARENT);
 
         appImageView = (ImageView) findViewById(R.id.imageView);
         drawable =  getResources().getDrawable(R.drawable.math);
         appImageView.setImageDrawable(drawable);
 
-        String button_id = "N/A";
         String course_content = "";
         Bundle extras = getIntent().getExtras();
         if(extras!=null)
         {
-            button_id = extras.getString("button_id");
+            course_content = extras.getString("course_content");
         }
 
         Intent intent = getIntent();
         TextView textView1 = new TextView(this);
         textView1.setTextSize(18);
-
         textView1.setTextColor(Color.parseColor("#951313"));
-        if (button_id == "btn_art")
-        {
-            course_content = "Welcome to Art course, my dear students. Please look at the content below. You will find a good image about historical Egypt hieroglyph ";
-        }
-        else if (button_id == "btn_eng")
-        {
-            course_content = "Welcome to Art course, my dear students. Today, we will learn few new words";
-        }
-        else if (button_id == "btn_math")
-        {
-            course_content = "Welcome to Art course, students. 2 + 2 = 4, memorize this.";
-        }
-
         textView1.setText(course_content);
-        setContentView(textView1);
 
-/*        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        TextView textView2= new TextView(this);
+        textView2.setTextSize(18);
+        textView2.setTextColor(Color.parseColor("#951313"));
+        textView2.setText(course_content);
+
+        relativeLayout.addView(textView1);
+        relativeLayout.addView(textView2);
+        setContentView(relativeLayout);
+
+
+
+/*      String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         textView = new TextView(this);
         welcome = new TextView(this);
 
